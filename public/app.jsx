@@ -25,9 +25,15 @@ var App = React.createClass({
             })
         ]
     },
-
+    handleSubmit(e){
+        e && e.preventDefault();
+        console.log('submit was called', arguments);
+        alert('handle submit');
+    },
     render(){
-        return <Form schema={schema} valueManager={this.valueManager}/>
+        return <Form schema={schema} onSubmit={this.handleSubmit} valueManager={this.valueManager}>
+            <button type="submit">Submit</button>
+        </Form>
     }
 
 });
