@@ -12,5 +12,6 @@ To install and run
  $ cd subschema-simple-example
  $ npm i
  $ npm run hot
+ $ open -a Chrome http://127.0.0.1:8007/
 
 ```
