@@ -25,6 +25,9 @@ var App = React.createClass({
             })
         ]
     },
+    componentWillUnmount(){
+        this._listeners.forEach((v)=>v.remove());
+    },
     handleSubmit(e){
         e && e.preventDefault();
         console.log('submit was called', arguments);
