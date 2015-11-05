@@ -39,7 +39,10 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'subschema': path.join(__dirname, 'node_modules/subschema/src/index.jsx')
+            'subschema': path.join(__dirname, 'node_modules/subschema/src/index.jsx'),
+            'subschema-styles': path.join(__dirname, 'node_modules/subschema/src/styles')
+
+	
         }
     },
     module: {
