@@ -18,10 +18,6 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
-    "css-loader": "^0.23.1",
-    "expect": "^1.13.4",
-    "file-loader": "^0.8.5",
-    "mocha": "^2.3.4",
     "native-promise-only": "^0.8.1",
     "react": "^0.14.6",
     "react-addons-css-transition-group": "^0.14.6",
@@ -29,9 +25,7 @@
     "react-dom": "^0.14.6",
     "react-transform-catch-errors": "^1.0.1",
     "react-transform-hmr": "^1.0.1",
-    "style-loader": "^0.13.0",
     "subschema": "^0.54.0",
-    "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }

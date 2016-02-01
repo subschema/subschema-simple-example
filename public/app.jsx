@@ -7,6 +7,7 @@ var schema = {
     schema: {
         name: 'Text',
         color: {
+            title: "Colour",
             type: 'Select',
             options: ['red', 'blue', 'green']
         }
