@@ -4,7 +4,9 @@
   "description": "Simple example of using subschema",
   "main": "index.js",
   "scripts": {
-    "hot": "webpack-dev-server --inline --hot --port 8007 --config ./hot.webpack.config.js"
+    "hot": "webpack-dev-server --inline --hot --port 8007 --config ./webpack.config.js --entry ./public/index.jsx",
+    "demo": "NODE_ENV=production webpack -p --output-path .build --entry ./public/index.jsx --output-filename=app.[hash].js --config ./webpack.config.js"
+
   },
   "author": "Justin Spears",
   "license": "ISC",

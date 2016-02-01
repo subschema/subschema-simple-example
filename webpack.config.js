@@ -1,26 +1,16 @@
+"use strict";
 var webpack = require('webpack');
 var path = require('path');
-
-var port = process.env['WEBPACK_PORT'] || 8007;
-var host = process.env['WEBPACK_HOST'] || '127.0.0.1';
+var join = path.join.bind(path, __dirname);
 
 module.exports = {
 
-    devtool: 'eval',
-    debug: true,
-    entry: [
-        'webpack-dev-server/client?http://' + host + ':' + port,
-        'webpack/hot/only-dev-server',
-        './public/index.jsx'
-    ],
-
+    devtool: '#sourcemap',
     devServer: {
-        contentBase: "public",
+        contentBase: join("public"),
         info: true, //  --no-info option
         hot: true,
-        inline: true,
-        port: port,
-        host: host
+        inline: true
     },
 
     output: {
@@ -35,31 +25,24 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'subschema': path.join(__dirname, 'node_modules/subschema/dist/subschema-noreact')
+            'subschema': join('node_modules/subschema/dist/subschema-noreact')
         }
     },
     module: {
+        extensions: ['', '.jsx', 'js'],
         loaders: [
             {
                 test: /\.js(x)?$/,
-                exclude: [
-                    'public'
+                include: [
+                    join('public')
                 ],
                 loaders: ['babel']
-            }, {
-                test: /\.less$/,
-                loader: 'style!css!less'
             }
         ]
-
     },
     plugins: [
-        new webpack.NoErrorsPlugin(),
         new webpack.ProvidePlugin({
             Promise: "native-promise-only"
-        }),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
         }),
         function () {
             this.plugin("done", function (stats) {
@@ -70,3 +53,4 @@ module.exports = {
             })
         }]
 };
+

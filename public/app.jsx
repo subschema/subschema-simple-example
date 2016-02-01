@@ -16,13 +16,16 @@ var schema = {
 };
 
 export default class App extends Component {
-    componentWillMount() {
-        this.valueManager = Subschema.ValueManager(this.props.data);
+    constructor(props, ...rest) {
+        super(props, ...rest);
+        this.valueManager = Subschema.ValueManager(props.data);
         this._listeners = [
-            this.valueManager.addListener('color', function (value) {
+            //listens to just color.
+            this.valueManager.addListener('color', (value)=> {
                 console.log('color', value);
             }),
-            this.valueManager.addListener(null, function (value) {
+            //listens to everything.
+            this.valueManager.addListener(null, (value)=> {
                 console.log('all', value);
             })
         ]
@@ -32,9 +35,9 @@ export default class App extends Component {
         this._listeners.forEach((v)=>v.remove());
     }
 
-    handleSubmit = (e)=> {
+    handleSubmit = (e, error, values)=> {
         e && e.preventDefault();
-        console.log('submit was called', arguments);
+        console.log('submit was called', error, values);
         alert('handle submit');
     };
 
