@@ -3,9 +3,6 @@ var path = require('path');
 
 var port = process.env['WEBPACK_PORT'] || 8007;
 var host = process.env['WEBPACK_HOST'] || '127.0.0.1';
-var AUTOPREFIXER_LOADER = 'autoprefixer-loader?{browsers:[' +
-    '"Android 2.3", "Android >= 4", "Chrome >= 20", "Firefox >= 24", ' +
-    '"Explorer >= 8", "iOS >= 6", "Opera >= 12", "Safari >= 6"]}';
 
 module.exports = {
 
@@ -28,7 +25,6 @@ module.exports = {
 
     output: {
         path: ".build",
-
         filename: 'app.entry.js',
         chunkFilename: '[id].chunk.js',
         publicPath: '/'
@@ -39,37 +35,25 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'subschema': path.join(__dirname, 'node_modules/subschema/src/index.jsx'),
-            'subschema-styles': path.join(__dirname, 'node_modules/subschema/src/styles')
-
-	
+            'subschema': path.join(__dirname, 'node_modules/subschema/dist/subschema-noreact')
         }
     },
     module: {
         loaders: [
             {
                 test: /\.js(x)?$/,
-                exclude: /node_modules/,
-                //do this to prevent babel fromt tanslating everything.
-                include: ['./public'],
-                loaders: ['react-hot', 'babel?stage=0']
-            }, {
-                test: /\.js(x)?$/,
                 exclude: [
-                    /webpack/,
-                    /node_modules\/(?!(subschema))/,
                     'public'
                 ],
-                loaders: ['babel?stage=0']
+                loaders: ['babel']
             }, {
-                test:/\.less$/,
-                loader:'style!css!less'
+                test: /\.less$/,
+                loader: 'style!css!less'
             }
         ]
 
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.ProvidePlugin({
             Promise: "native-promise-only"
@@ -85,4 +69,4 @@ module.exports = {
                 }));
             })
         }]
-}
+};

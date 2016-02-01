@@ -1,3 +1,6 @@
-var React = require('react');
-var App = require('./app.jsx');
-React.render(<App/>, document.getElementById('content'));
+"use strict";
+
+import React from 'react';
+import {render} from 'react-dom';
+import App from './app.jsx';
+render(<App/>, document.getElementById('content'));
