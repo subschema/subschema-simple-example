@@ -6,7 +6,6 @@
   "scripts": {
     "hot": "webpack-dev-server --inline --hot --port 8007 --config ./webpack.config.js --entry ./public/index.jsx",
     "demo": "NODE_ENV=production webpack -p --output-path .build --entry ./public/index.jsx --output-filename=app.[hash].js --config ./webpack.config.js"
-
   },
   "author": "Justin Spears",
   "license": "ISC",
@@ -25,7 +24,7 @@
     "react-dom": "^0.14.6",
     "react-transform-catch-errors": "^1.0.1",
     "react-transform-hmr": "^1.0.1",
-    "subschema": "^0.54.0",
+    "subschema": "^1.0.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }
